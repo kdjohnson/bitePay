@@ -1,0 +1,78 @@
+/***********************
+MAIN STYLES
+***********************/
+
+.main-header,
+.nav-custom {
+    display: flex;
+    flex-direction: column;
+}
+.main-header {
+    padding-top: 2em;    
+}
+
+.nav-custom {
+    margin-top 1.5em;    
+    list-style-type: none;
+    background-color: #FFFFFF;
+}
+
+.nav-custom a {
+    display: block;    
+    color: #FFD966;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: center;
+    padding: .4em;
+    border-bottom: 2px solid #DEDEDE;
+    text-decoration: none;
+}
+
+.nav-custom a:hover {
+    color: #0b0b0b;    
+    border-bottom-color: #000000;
+}
+
+.nav-custom li {
+    padding: 5px;    
+    margin-right: 3em;
+}
+
+
+/***********************
+MEDIA QUERIES
+***********************/
+
+@media (min-width: 769px) {
+
+    .main-header {
+	height: 200px;
+    }
+
+    .nav-custom {
+	flex-direction: row;
+	justify-content: space-between;
+    }
+
+    .nav a {
+	border-bottom-color: transparent;	
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .main-header {
+	flex-direction: row;
+	justify-content: space-between;
+    }
+
+    .nav-custom {
+	margin-top: 0;	
+	align-self: center;
+    }
+    
+    .nav-custom li {
+    margin-left: .65em;
+    margin-right: 2em;
+    }
+}
