@@ -1,4 +1,74 @@
+/************************
+	GENERAL
+************************/
 * {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: medium;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: 700;
+}
+
+body  {
+   background-color: #272625;
+   color: #FFFFFF;
+}
+
+
+/************************
+	JUMBOTRON
+************************/
+
+.container-fluid .jumbotron {
+    background-color: #272625;
+    color: #FFFFFF;
+    font-size: 1em;
+    text-align: justify-all;
+    border-radius: 0px;
+}
+
+.jumbotron h1, h2 {
+    text-align: center;
+}
+
+.jumbotron h2 {
+    border: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #FFD966;
+    padding-bottom: .7em;
+}
+
+.equal1 {
+    padding-top: .7em;    
+}
+
+.equal* {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.equal* div[class*='col-'] {
+    flex: 1 1 auto;
+    display:flex;
+}
+
+.equal* .panel {
+    flex-shrink: 0;
+    flex: 1 0 100%;
+}
+
+/************************
+	PANEL	
+************************/
+
+.panel {
+    border-radius: 0px;    
+}
+
+.panel-default > .panel-heading {
+    background-image: none;
+    background-color: #FFFFFF;
+    color: #FFD966;
+}
+
+.panel-body{
+    background-color: #191919;    
 }

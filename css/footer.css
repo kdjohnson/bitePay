@@ -1,0 +1,20 @@
+.footer {
+    background-color: #FFFFFF;
+    color: #000000;
+    display: flex;
+}
+
+.footer .bottom li {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.footer .bottom .image img {
+    max-width: 50%;
+    margin-left: -20%;
+}
+
+.footer .bottom .image p {
+    margin: 10%;
+}
+
