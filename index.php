@@ -23,7 +23,15 @@ $container['view'] = function($container) {
 
 // Define app routes
 $app->get('/', function ($request, $response) {
-        return $this->view->render($response, 'index.html');
+    return $this->view->render($response, 'index.html');
+});
+
+$app->get('/login', function ($request, $response) {
+    return $this->view->render($response, 'login.html');
+});
+
+$app->post('/login', function ($request, $response) {
+    return $this->view->render($response, 'login.html');
 });
 
 // Run app

@@ -1,0 +1,19 @@
+
+body {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: 700;
+    background-color: #272625;
+    color: #384047;
+    display: flex;
+    align-self: center;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.input-group .form-control {
+    margin-bottom: 2em;
+}
+
