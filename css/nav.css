@@ -1,5 +1,5 @@
 /***********************
-MAIN STYLES
+    MAIN STYLES
 ***********************/
 
 .main-header,
@@ -14,23 +14,23 @@ MAIN STYLES
 .nav-custom {
     margin-top 1.5em;    
     list-style-type: none;
-    background-color: #FFFFFF;
+    background-color: #000000;
 }
 
 .nav-custom a {
     display: block;    
-    color: #FFD966;
+    color: #FFFFFF;
     font-size: 1.2em;
     font-weight: 300;
     text-align: center;
     padding: .4em;
-    border-bottom: 2px solid #DEDEDE;
+    border-bottom: 2px solid #000000;
     text-decoration: none;
 }
 
 .nav-custom a:hover {
-    color: #0b0b0b;    
-    border-bottom-color: #000000;
+    color: #FFD966;    
+    border-bottom-color: #FFD966;
 }
 
 .nav-custom li {
