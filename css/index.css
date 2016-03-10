@@ -65,8 +65,9 @@ body  {
 
 .panel-default > .panel-heading {
     background-image: none;
-    background-color: #FFFFFF;
-    color: #FFD966;
+    background-color: #FFD966;
+    color: #ffffff;
+	text-align: center;
 }
 
 .panel-body {

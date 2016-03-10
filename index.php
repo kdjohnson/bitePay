@@ -26,5 +26,8 @@ $app->get('/', function ($request, $response) {
         return $this->view->render($response, 'index.html');
 });
 
+$app->get('/signup', function ($request, $response) {
+        return $this->view->render($response, 'signup.html');
+});
 // Run app
 $app->run();
