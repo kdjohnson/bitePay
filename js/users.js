@@ -22,32 +22,36 @@ $('.submit').click(function(event) {
 	    }
 	} else {
 
-	    var mail = $("#mail").val();
-	    var pass = $("#password").val();
-	    
-	    ref.child("users").push({
-		    list: {
-			email: $("#mail").val(),
-			password: $("#password").val()
-		    }
-		});
+		var mail = $("#mail").val();
+		var pass = $("#password").val();
+		ref.child("users").push({
+			list: {
+			    email: $("#mail").val(),
+			    password: $("#password").val()
+			}
+		    });
 
-	    console.log("Successfully created user account with uid:", userData.uid);
-	}
-	});
-
-	ref.authWithPassword({
-		email: $("#mail").val(),
-		password: $("#password").val()
-	    }, function(error, authData) {
-	    if (error) {
-		console.log("Login Failed!", error);
-	    } else {
-		console.log("Authenticated successfully with payload:", authData);
-		alert(ref.getAuth().auth.uid);	
+		console.log("Successfully created user account with uid:", userData.uid);
 	    }
 	});
+
+	setTimeout(function() {
+
+	    ref.authWithPassword({
+		    email: $("#mail").val(),
+		    password: $("#password").val()
+		}, function(error, authData) {
+		if (error) {
+		    console.log("Login Failed!", error);
+		} else {
+		    console.log("Authenticated successfully with payload:", authData);
+		    alert(ref.getAuth().auth.uid);
+		    window.location.href='/';
+		}
+	    });
+	}, 2000);
     });
+
 
 /*
  * Implement once Nikole finishes the login html 
