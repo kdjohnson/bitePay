@@ -1,11 +1,10 @@
+$(document).ready(function() {
 //Reference to the Firebase this is used to everything with Firebase.
 var ref = new Firebase("https://torrid-fire-980.firebaseio.com");
 
 $('.submit').click(function(event) {
 
     ref.createUser({
-	//email: "bobtony@firebase.com",
-	//password: "correcthorsebatterystaple"
 	email: $("#mail").val(),
 	password: $("#password").val()
 
@@ -36,12 +35,10 @@ $('.submit').click(function(event) {
 	    console.log("Successfully created user account with uid:", userData.uid);
 	}
 	});
-    });
 
-$('.logout').click(function(event) {
 	ref.authWithPassword({
-		email    : "bobtony@firebase.com",
-		password : "correcthorsebatterystaple"
+		email: $("#mail").val(),
+		password: $("#password").val()
 	    }, function(error, authData) {
 	    if (error) {
 		console.log("Login Failed!", error);
@@ -52,7 +49,16 @@ $('.logout').click(function(event) {
 	});
     });
 
-$('.greg').click(function(event) {
+/*
+ * Implement once Nikole finishes the login html 
+$('.login').click(function(event) {
+	ref.authWithPassword({
+		//email    : "bobtony@firebase.com",
+		//password : "correcthorsebatterystaple"
+	    });
+    });
+*/
+$('.logout').click(function(event) {
 	ref.unauth();
 	alert(ref.getAuth());
 	if( ref.getAuth() == null ){
@@ -61,3 +67,4 @@ $('.greg').click(function(event) {
 	    console.log("I don't know");    
 	}
     });
+});
