@@ -65,10 +65,16 @@ body  {
 
 .panel-default > .panel-heading {
     background-image: none;
-    background-color: #FFFFFF;
+    background-color: #191919;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.panel-heading:hover {
     color: #FFD966;
+    text-align: center;
 }
 
 .panel-body {
-    background-color: #191919;    
+    background-color: #FFFFFF   
 }
