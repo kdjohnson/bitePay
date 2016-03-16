@@ -1,0 +1,63 @@
+/************************
+	GENERAL
+************************/
+* {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: 700;
+}
+
+body  {
+   background-color: #272625;
+   color: #FFFFFF;
+}
+
+/************************
+	PAGE HEADER
+************************/
+
+.page-header {
+    border-bottom: 3px solid #FFD966; 
+}
+
+.page-header h1 {
+    color: #FFD966;    
+    text-transform: uppercase;
+}
+
+.page-header small {
+    color: #FFFFFF;
+    text-transform: lowercase;
+}
+
+.list {
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-color: #FFD966;
+}
+
+.list .list-group .list-group-item {
+    background-image: none;
+    background-color: #272625;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border-right-style: none;
+    border-left-style: none;
+    border-top-color: #DFDFDF;
+    border-bottom-color: #DFDFDF;
+}
+
+.list .list-group .list-group-item:hover {
+   color: #FFD966; 
+}
+
+/*
+.list-group-item button {
+    float: right;
+    background-color: transparent;
+}
+*/
+
+.list-group-item span {
+    background-color: transparent;    
+    float: right;
+}

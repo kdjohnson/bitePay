@@ -72,3 +72,8 @@ body  {
 .panel-body {
     background-color: #191919;    
 }
+
+.panel-body img {
+    width: 100%;
+    height: auto;
+}
