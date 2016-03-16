@@ -23,7 +23,6 @@ $container['view'] = function($container) {
 
 // Define app routes
 $app->get('/', function ($request, $response) {
-	return $this->view->render($response, 'index.html');
     return $this->view->render($response, 'index.html');
 });
 
