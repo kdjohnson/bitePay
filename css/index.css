@@ -78,3 +78,8 @@ body  {
 .panel-body {
     background-color: #FFFFFF   
 }
+
+.panel-body img {
+    width: 100%;
+    height: auto;
+}

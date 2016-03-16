@@ -29,9 +29,8 @@ $app->get('/login', function ($request, $response) {
     return $this->view->render($response, 'login.html');
 });
 
-$app->post('/login', function ($request, $response) {
-    return $this->view->render($response, 'login.html');
+$app->get('/places', function ($request, $response) {
+    return $this->view->render($response, 'places.html');
 });
-
 // Run app
 $app->run();
