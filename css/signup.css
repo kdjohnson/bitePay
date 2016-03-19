@@ -18,9 +18,11 @@ a {
   transition: .5s ease;
 }
 
-img.resize {
-   max-width:50%;
-   max-height:50%;
+img {
+	float: left;
+	padding-left: 20px;
+	width: 20%;
+	margin-right: 20px;
 }
 
 .header {
