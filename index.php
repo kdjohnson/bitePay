@@ -27,6 +27,7 @@ $app->get('/', function ($request, $response) {
 
 $app->get('/places', function ($request, $response) {
     return $this->view->render($response, 'places.html');
+});
 
 $app->get('/register', function ($request, $response) {
         return $this->view->render($response, 'signup.html');
