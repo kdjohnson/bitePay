@@ -71,8 +71,9 @@ body  {
 }
 
 .panel-heading:hover {
-    color: #FFD966;
     text-align: center;
+    background-color: #FFD966;
+    color: #FFFFFF;
 }
 
 .panel-body {

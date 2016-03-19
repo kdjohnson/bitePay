@@ -25,12 +25,11 @@ $app->get('/', function ($request, $response) {
     return $this->view->render($response, 'index.html');
 });
 
-$app->get('/login', function ($request, $response) {
-    return $this->view->render($response, 'login.html');
-});
-
 $app->get('/places', function ($request, $response) {
     return $this->view->render($response, 'places.html');
+
+$app->get('/register', function ($request, $response) {
+        return $this->view->render($response, 'signup.html');
 });
 // Run app
 $app->run();
