@@ -32,5 +32,9 @@ $app->get('/places', function ($request, $response) {
 $app->get('/register', function ($request, $response) {
         return $this->view->render($response, 'signup.html');
 });
+
+$app->get('/pay', function ($request, $response) {
+    return $this->view->render($response, 'checkout.html');
+});
 // Run app
 $app->run();

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Latest compiled and minified CSS -->
+<link rel="sytlesheet" href=https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Molengo' rel='stylesheet' type='text/css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
+<title>Register</title>
+</head>
+<body>
+    <!-- Drop In -->
+    <form id="checkout" method="post" action="/checkout">
+	<div id="payment-form"></div>
+    </form>
+</body>
+<script>
+    $(document).ready(function(){
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.open("get", "templates/payment.php", true);
+	xmlhttp.onreadystatechange = function () {
+	    if(xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status === 200){
+
+		braintree.setup(xmlhttp.responseText, "dropin", {
+		    container: "payment-form"
+		});
+		console.log("Long" + xmlhttp.responseText);
+	    }
+	};
+	xmlhttp.send();
+    });
+</script>
+</html>
