@@ -11,6 +11,33 @@ body  {
    color: #FFFFFF;
 }
 
+/**********************
+	DANKNEGS
+**********************/
+
+.homeButtons {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.homeButtons > button {
+    background-color: #FFD966;
+}
+
+@media (max-width: 768px) {
+    .danknegs {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+    }
+
+    .btn {
+	margin-bottom: 30px;
+    }
+
+}
+
+
 
 /************************
 	JUMBOTRON
@@ -24,15 +51,15 @@ body  {
     border-radius: 0px;
 }
 
-.jumbotron h1, h2 {
+.jumbotron h1 {
     text-align: center;
 }
 
-.jumbotron h2 {
+.jumbotron h1 {
     border: 2px;
     border-bottom-style: solid;
     border-bottom-color: #FFD966;
-    padding-bottom: .7em;
+    padding-bottom: .2em;
 }
 
 .equal1 {
