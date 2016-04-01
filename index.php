@@ -25,16 +25,21 @@ $app->get('/', function ($request, $response) {
     return $this->view->render($response, 'index.html');
 });
 
+$app->get('/places/{name}', function ($request, $response) {
+    return $this->view->render($response, 'places.html');
+});
+
 $app->get('/places', function ($request, $response) {
     return $this->view->render($response, 'places.html');
 });
 
 $app->get('/register', function ($request, $response) {
-        return $this->view->render($response, 'signup.html');
+    return $this->view->render($response, 'signup.html');
 });
 
 $app->get('/pay', function ($request, $response) {
     return $this->view->render($response, 'checkout.html');
 });
+
 // Run app
 $app->run();
