@@ -18,6 +18,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script type="text/javascript" src="../js/index.js"></script>
 <title>title</title>
 </head>
 
@@ -34,8 +36,38 @@
 	<h1>Welcome to bitePay</h1>
 	<div class="homeButtons">
 	    <button class="btn btn-defualt btn-lg" type="button">In-Line</button>
-	    <button class="btn btn-defualt btn-lg" type="button">Need Food?</button>
+	    <button class="btn btn-defualt btn-lg" type="button" data-toggle="modal" data-target="#exampleModal">Need Food?</button>
 	</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	    <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="exampleModalLabel">Where ?</h4>
+		    </div>
+		    <div class="modal-body">
+			<div class="list-group">
+			    <li class="list-group-item"><a href="places/Einstein">Einstein Bagels</a></li>
+			    <li class="list-group-item"><a href="places/Panda">Panda Express</a></li>
+			    <li class="list-group-item"><a href="places/Subway">Subway</a></li>
+			    <li class="list-group-item"><a href="places/Create">Create</a></li>
+			    <li class="list-group-item"><a href="places/Moes">Moe's Southwestern Grill</a></li>
+			    <li class="list-group-item"><a href="places/Chickfila">Chick-fil-a</a></li>
+			    <li class="list-group-item"><a href="places/Starbucks">Starbucks</a></li>
+			    <!--
+			    <a>Panda Express</a>
+			    <a>Subway</a>
+			    <a>Create</a>
+			    <a>Moe's Southwestern Grill</a>
+			    <a>Chick-fil-a</a>
+			    <a>Starbucks</a>
+			    -->
+			</div>
+		    </div>
+		</div>
+	    </div>
+	</div>
+
 	<!--
 	<div class="row equal1">
 	    <div class="col-md-4">
