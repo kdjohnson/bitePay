@@ -12,12 +12,15 @@ body  {
 }
 
 /**********************
-	DANKNEGS
+	HOMEBUTTONS
 **********************/
 
 .homeButtons {
     display: flex;
     justify-content: space-around; 
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #FFD966;
 }
 
 .homeButtons > button {
