@@ -50,14 +50,52 @@ body  {
    color: #FFD966; 
 }
 
-/*
-.list-group-item button {
-    float: right;
-    background-color: transparent;
-}
-*/
-
 .list-group-item span {
     background-color: transparent;    
     float: right;
+}
+
+.content > button {
+    width: 100%;
+    background-image: none;
+    background-color: #FFD966;
+    border-radius: 0px;
+    text-align: left;
+}
+
+.content span {
+    float: right;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.toggles {
+    margin-top: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+.btn.animated.pulse.active {
+    -webkit-animation-iteration-count: infinite;
+    color: #FFFFFF;
+}
+
+.toggles > .btn {
+    border-radius: 0px;
+    background-image: none;
+    background-color: #E0E0E0; 
+    color: #000000;
+}
+
+.toggles > .btn:hover {
+    background-color: #FFD966; 
+}
+
+.toggles > .btn.active {
+    background-color: #FFD966; 
 }
