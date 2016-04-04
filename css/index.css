@@ -11,6 +11,37 @@ body  {
    color: #FFFFFF;
 }
 
+/**********************
+	HOMEBUTTONS
+**********************/
+
+.homeButtons {
+    display: flex;
+    justify-content: space-around; 
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #FFD966;
+    padding-bottom: 10px;
+}
+
+.homeButtons > button {
+    background-color: #FFD966;
+}
+
+@media (max-width: 768px) {
+    .homeButtons {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+    }
+
+    .btn {
+	margin-bottom: 30px;
+    }
+
+}
+
+
 
 /************************
 	JUMBOTRON
@@ -24,15 +55,15 @@ body  {
     border-radius: 0px;
 }
 
-.jumbotron h1, h2 {
+.jumbotron h1 {
     text-align: center;
 }
 
-.jumbotron h2 {
+.jumbotron h1 {
     border: 2px;
     border-bottom-style: solid;
     border-bottom-color: #FFD966;
-    padding-bottom: .7em;
+    padding-bottom: .2em;
 }
 
 .equal1 {
@@ -84,3 +115,36 @@ body  {
     width: 100%;
     height: auto;
 }
+
+/*************************
+ *	MODAL
+ ************************/
+
+.modal-content {
+    background-color: #696969;
+}
+
+.list-group-item > a {
+   color: #FFFFFF; 
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: center;
+    background-image: none;
+    background-color: #696969;
+    border-color: #696969;
+    color: #FFFFFF;
+} 
+
+.list-group-item:hover > a {
+    color: #FFD966; 
+    text-decoration: none;
+} 
+
+h4 {
+    display:flex;
+    color: #FFD966;
+    justify-content: center;
+}
+

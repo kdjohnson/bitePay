@@ -13,6 +13,7 @@
 <link href='../css/nav.css' rel='stylesheet' type='text/css'>
 <link href='../css/footer.css' rel='stylesheet' type='text/css'>
 <link href='../css/places.css' rel='stylesheet' type='text/css'>
+<link href='../css/animate.css' rel='stylesheet' type='text/css'>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
@@ -32,9 +33,25 @@
 </header>
 <div class="page-header">
 </div>
-<div class="list">
-    <ul class="list-group">
-    </ul>
+<div class="content">
+    <button class="btn" id="menuItems" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false" aria-controls="collapseExample">
+	Menu Items<span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <div class="collapse" id="collapseMenu">
+	<div class="list">
+	    <ul class="list-group">
+	    </ul>
+	</div>
+    </div>
+    <button class="btn" id="Grizz" type="button" data-toggle="collapse" data-target="#collapseGrizz" aria-expanded="false" aria-controls="collapseExample">
+	Grizzlies In Line<span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <div class="collapse" id="collapseGrizz">
+	<div class="container">
+	    <div class="toggles" data-toggle="buttons">
+	    </div>
+	</div>
+    </div>
 </div>
 <div class="total">
     <h1 class="price" id="total">Total: &#36</h1>
