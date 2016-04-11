@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var ref = new Firebase('https://shining-fire-5792.firebaseio.com/');
+    var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/Inline');
     var username;
 
     $('[id^=c]').click(function(event) {
@@ -9,18 +10,10 @@ $(document).ready(function() {
     });
 
     $('#placedInline').click(function(event) {
-	/*
-	if( ref.getAuth().auth.uid ){
-	    $('[id^=c]:checked').prop('value');
-	    $('#placedInline').prop('href', '/places/' + $('[id^=c]:checked').prop('value'))
-	    console.log($('#placedInline').prop('href'));
-	} else {
-	    console.log("false");	
-	    $('.alert').css('display', 'block');
-	}
-	*/
+
 	ref.onAuth(function(authData) {
-	    var place = $('[id^=c]:checked').prop('value');
+	    console.log("Authenticated with uid:", authData.uid);
+	    //var place = $('[id^=c]:checked').prop('value');
 
 	    if (authData) {
 		ref.once("value", function(snapshot) {
@@ -33,22 +26,38 @@ $(document).ready(function() {
 					    if( GGGChildSnapshot.val() === authData.password.email ) {
 						username = greatGChildSnapshot.val().username;
 
-						ref.once("value", function(snapshot) {
-						    ref.orderByKey().on("child_added", function(childSnapshot) {
-							if( childSnapshot.key() === 'Inline') {
-							    childSnapshot.forEach(function(gSnapshot){
-								if( gSnapshot.key() === $('[id^=c]:checked').prop('value')){
-							    var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/Inline' + '/' + gSnapshot.key());
-								    console.log(gSnapshot.key());
-								    var updatedObj = {};
-								    updatedObj[username] = 'inline';
-								    ref2.push({updatedObj});
-								}
-							    });
-
-							}
-						    });	
-						});
+						switch($('[id^=c]:checked').prop('value')){
+						    case 'Chickfila': 
+							var Chickfila = {};
+							Chickfila[username] = 'inline';
+							ref2.update({'Chickfila':Chickfila});
+							break;
+						    case 'Create': 
+							var Create = {};
+							Create[username] = 'inline';
+							ref2.update({'Create':Create});
+							break;
+						    case 'Einstein': 
+							var Einstein = {};
+							Einstein[username] = 'inline';
+							ref2.update({'Einstein':Einstein});
+							break;
+						    case 'Moes': 
+							var Moes = {};
+							Moes[username] = 'inline';
+							ref2.update({'Moes':Moes});
+							break;
+						    case 'Panda': 
+							var Panda = {};
+							Panda[username] = 'inline';
+							ref2.update({'Panda':Panda});
+							break;
+						    case 'Subway': 
+							var Subway = {};
+							Subway[username] = 'inline';
+							ref2.update({'Subway':Subway});
+							break;
+						}
 					    }
 					}
 				    });
@@ -58,15 +67,12 @@ $(document).ready(function() {
 		    });
 		});
 
-
-		console.log("Authenticated with uid:", authData.uid);
-		$('[id^=c]:checked').prop('value');
-		//$('#placedInline').prop('href', '/places/' + $('[id^=c]:checked').prop('value'))
-		console.log($('#placedInline').prop('href'));
-
+		setTimeout(function() {
+		    alert('Hello');
+		    window.location.href='/places/' + $('[id^=c]:checked').prop('value');
+		}, 1000);
 	    } else {
 		console.log("Client unauthenticated.")
-		console.log("Not logged in.");	
 		$('.alert').css('display', 'block');
 	    }
 	});
