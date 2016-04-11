@@ -29,6 +29,10 @@ $app->get('/places/{name}', function ($request, $response) {
     return $this->view->render($response, 'places.html');
 });
 
+$app->get('/places/Inline/{name}', function ($request, $response) {
+    return $this->view->render($response, 'places.html');
+});
+
 $app->get('/places', function ($request, $response) {
     return $this->view->render($response, 'places.html');
 });

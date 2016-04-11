@@ -127,7 +127,7 @@ $(document).ready(function() {
 		console.log("Fuck");
 	    } else {
 		for(var i = 0; i < peopleInline.length; i++) {
-		    $('.toggles').append("<label class='btn' id='peeps" + i + "'><input type='checkbox' autocomplet='off'>" + peopleInline[i] + "</label>"); 
+		    $('.toggles').append("<label class='btn' id='peeps" + i + "'><input type='checkbox' autocomplete='off'>" + peopleInline[i] + "</label>"); 
 		}
 	    }
 	}
