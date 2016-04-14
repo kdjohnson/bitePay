@@ -10,29 +10,38 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Molengo' rel='stylesheet' type='text/css'>
+<link href='../css/customCheckout.css' rel='stylesheet' type='text/css'>
+<link href='../css/animate.css' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 <script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
-<title>Register</title>
 </head>
-<body>
-    <!-- Drop In -->
-    <form id="checkout" method="post" action="/checkout">
-	<div id="payment-form"></div>
-    </form>
-</body>
+<form id="checkout" method="post" action="result/">
+    <div class="container">
+	Amount $
+	<input class="form-control" type="number" type="text">
+	Card Number:
+	<input class="form-control" type="number" data-braintree-name="number" value="4111111111111111">
+	Expiration Date (MM/YY): 
+	<input class="form-control" type="number" data-braintree-name="expiration_date" value="10/20">
+	CVV:
+	<input class="form-control" type="number" data-braintree-name="cvv">
+	<button class="btn" type="submit">Pay</button>
+    </div>
+</form>
 <script>
     $(document).ready(function(){
 	$.ajax({
 	    method: "GET",
 	    url: "templates/payment.php",
 	    success: function(data) { 
-		braintree.setup(data, "dropin", {
-		    container: "payment-form"
-		});
+		braintree.setup(
+		    data, 
+		    "custom", {
+			id: "checkout"
+		    });
 	    }
 	});
     });
