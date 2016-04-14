@@ -142,3 +142,34 @@ label {
     width: 100%;
 }
 
+/*
+ * definitley a media query
+*/
+
+@media( max-width: 768px) { 
+    .increment {
+	display: inline-flex;
+	margin-left: -.4em;
+    }
+
+    .quantity {
+	margin: 0.5em 0.5em 0 0.5em;
+    }
+
+}
+
+.increment > .btn  {
+    background-image: none;
+    background-color: #000000;
+    border-color: #000000;
+    margin: 3px;
+}
+
+.increment {
+    display: inline-flex;
+    margin-left: -.4em;
+}
+
+.quantity {
+    margin: 0.5em 0.5em 0 0.5em;
+}
