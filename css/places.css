@@ -58,26 +58,39 @@ body  {
 .content > button {
     width: 100%;
     background-image: none;
-    background-color: #FFD966;
-    border-radius: 0px;
-    text-align: left;
+    background-color: #000000;
+    color: #FFD966;
+}
+
+.btn, .btn:hover, .btn:active, .btn:focus {
+    color: #FFD966;
 }
 
 .content span {
     float: right;
 }
 
+
+/*
 .container > div {
     display: flex;
     flex-direction: column;
 }
+    */
 
 .toggles {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
     margin-top: 10px;
+}
+
+.btn {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .btn.animated.pulse.active {
@@ -86,10 +99,9 @@ label {
 }
 
 .toggles > .btn {
-    border-radius: 0px;
     background-image: none;
     background-color: #E0E0E0; 
-    color: #000000;
+    color: #FFFFFF;
 }
 
 .toggles > .btn:hover {
@@ -98,4 +110,66 @@ label {
 
 .toggles > .btn.active {
     background-color: #FFD966; 
+}
+
+
+
+
+/************************
+	  CHAT
+************************/
+
+.example-chat.l-demo-container {
+    color: #000000;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+}
+
+.example-chat ul {
+    list-style: none;
+    padding: 20px;
+    height: 200px;
+    overflow: auto;
+}
+
+.example-chat ul .example-chat-username {
+    margin-right: 10px;
+}
+
+.example-chat footer input {
+    border: 1px solid #CED3DB;
+    height: 40px;
+    width: 100%;
+}
+
+/*
+ * definitley a media query
+*/
+
+@media( max-width: 768px) { 
+    .increment {
+	display: inline-flex;
+	margin-left: -.4em;
+    }
+
+    .quantity {
+	margin: 0.5em 0.5em 0 0.5em;
+    }
+
+}
+
+.increment > .btn  {
+    background-image: none;
+    background-color: #000000;
+    border-color: #000000;
+    margin: 3px;
+}
+
+.increment {
+    display: inline-flex;
+    margin-left: -.4em;
+}
+
+.quantity {
+    margin: 0.5em 0.5em 0 0.5em;
 }

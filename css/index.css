@@ -148,3 +148,52 @@ h4 {
     justify-content: center;
 }
 
+.modal-body.in-line {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*************************
+ *        LABEL
+ ************************/
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+    display: inline-block;
+    border: 2px solid #FFFFFF; 
+    margin: 0 1em 0 0;
+    content: "\00a0";
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background: #FFD966;
+}
+
+.container-fluid.sendOff .btn {
+    margin: 10px 0px 0px 0px;
+    background-image: none;
+    background-color: #FFD966;
+}
+
+.container-fluid.sendOff .btn a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.alert.alert-danger {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    display: none;
+}

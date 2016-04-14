@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var ref = new Firebase('https://crackling-inferno-5242.firebaseio.com');
+    var ref = new Firebase('https://shining-fire-5792.firebaseio.com');
     $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
 	var $this = $(this),
@@ -52,7 +52,8 @@ $(document).ready(function() {
 
 	    ref.createUser({
 		email: $("#email").val(),
-		password: $("#pass").val()
+		password: $("#pass").val(),
+		username: $("#name").val()
 
 	    }, function(error, userData) {
 		if (error) {
@@ -70,10 +71,12 @@ $(document).ready(function() {
 
 		    var mail = $("#email").val();
 		    var pass = $("#pass").val();
+		    var uName = $("#name").val();
 		    ref.child("users").push({
 			list: {
 			    email: $("#email").val(),
-			    password: $("#pass").val()
+			    password: $("#pass").val(),
+			    username: $("#name").val()
 			}
 		    });
 
@@ -97,17 +100,20 @@ $(document).ready(function() {
 		});
 	    }, 2000);
 	} else {
+	    setTimeout( function() {
 		ref.authWithPassword({
 		    email    : $('#loginName').val(),
 		    password : $('#passLogin').val()
-	    }, function(error, authData){
-		if(error) {
-		    console.log("Shit done broke son", error);
-		} else {
-		    console.log("Authenticated bitch", authData);
-		    alert(ref.getAuth().auth.uid);
-		}
-	    });
+		}, function(error, authData){
+		    if(error) {
+			console.log("Shit done broke son", error);
+		    } else {
+			console.log("Authenticated bitch", authData);
+			alert(ref.getAuth().auth.uid);
+			window.location.href='/';
+		    }
+		});
+	    }, 2000);
 	}
     });
 });
