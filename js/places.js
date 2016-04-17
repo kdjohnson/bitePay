@@ -1,5 +1,9 @@
 $(document).ready(function() {
     var ref = new Firebase('https://shining-fire-5792.firebaseio.com/'); //Connect to Firebase
+    var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/'); //Connect to Firebase
+    var messagesRef;
+    var user1;
+    var user2;
     var f = window.location.pathname; //Get URL for displaying correct restaurant.
 
     var map = new Map(); //Key, Value pair for the menu items and prices from Firebase.
@@ -10,7 +14,7 @@ $(document).ready(function() {
     var count = 0; //How many of that item;
 
     //Set name and location
-    $('.page-header').html("<h1>" + f.substring(8, f.length) + "<small> Oakland Center</small>" + "</h1>" );
+    $('.page-header').prop('innerHTML', "<h1>" + f.substring(8, f.length) + "<small> Oakland Center</small>");
 
     /*
      * Query of Firebase to get the elements to populate the page.
@@ -49,7 +53,7 @@ $(document).ready(function() {
 	var loopItems; 
 	for( var j = 0; j < map.size; j++ ){
 	    var b = j.toString();
-	    $(".list-group").append('<li class="list-group-item" id=item'+ j + ' value=' + pricesArray[j] +'>' + itemsArray[j] + '<div class="side"><span class="badge">$' + pricesArray[j] + '</span>' + '<div class="increment"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></button><p class="quantity" id="portion' + j + '">0</p><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-minus"></button></div></div>' + '</li>');
+	    $(".list-group").append('<li class="list-group-item" id="item'+ j + '"'+ ' value=' + pricesArray[j] +'>' + itemsArray[j] + '<div class="side"><span class="badge">$' + pricesArray[j] + '</span>' + '<div class="increment"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></button><p class="quantity" id="portion' + j + '">0</p><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-minus"></button></div></div>' + '</li>');
 	}
 
 	$(".list > .list-group-item").each(function(i) {
@@ -152,17 +156,81 @@ $(document).ready(function() {
 	    $('#Grizz > span').addClass('glyphicon glyphicon-plus animated rollIn');
 	}
 	for(var i = 0; i < peopleInline.length; i++){
-	    if($("#peeps" + i ).text() === peopleInline[i] ) {
+	    if($("#options" + i ).prop('name') === 'options') {
 		console.log("Fuck");
 	    } else {
 		for(var i = 0; i < peopleInline.length; i++) {
-		    $('.toggles').append("<label class='btn' id='peeps" + i + "'><input type='checkbox' autocomplete='off'>" + peopleInline[i] + "</label>"); 
+		   //$('.btn-group').append('<label class="btn"><input type="radio" name="options" id="options' + i + '" autocomplete="off">' +  peopleInline[i] + '</label>'); 
+		    $('.btn-group').append('<label id="peeps' + i + '" ><input type="radio" id="options' + i + '" name="options">' + peopleInline[i] + '</label>');
 		}
 	    }
 	}
-	$("label").click(function() {
-	    $(this).addClass('animated pulse');
+
+	$('[id^=options]').click(function(){
+	    var y = $(this).prop('id').substring(7, $(this).prop('id').length);
+	    console.log($('#peeps' + y).prop('innerText'));
+	    user2 = $('#peeps' + y).prop('innerText');
+	    var chat = {}
+	    chat['chat'] = user2;
+
+	    $('#chatGrizz').prop('innerHTML', 'Chat with ' + user2);
+
+	    ref.onAuth(function(authData) {
+		ref.once("value", function(snapshot) {
+		    ref.orderByKey().on("child_added", function(childSnapshot) {
+			if( childSnapshot.key() === 'users'){
+			    childSnapshot.forEach(function(grandChildSnapshot){
+				grandChildSnapshot.forEach(function(greatGChildSnapshot){
+				    greatGChildSnapshot.forEach(function(GGGChildSnapshot) {
+					if( GGGChildSnapshot.key() === 'email' ) {
+					    if( GGGChildSnapshot.val() === authData.password.email ) {
+						user1 = greatGChildSnapshot.val().username;
+						var ref3 = new Firebase('https://shining-fire-5792.firebaseio.com/users/' + grandChildSnapshot.key() +  '/' + greatGChildSnapshot.key()); //Connect to Firebase
+						ref3.update({'chat': chat['chat']});
+					    }
+					}
+				    });
+				});
+			    });
+			}
+		    });
+		});
+	    });
+
 	});
     });
 
+
+
+    $('#checkout').click(function() {
+	var total1 = $('#total').prop('innerText').substring(8, $('#total').prop('innerText').length)
+	var price = {};
+	price['price'] = total1;
+	ref.onAuth(function(authData) {
+	    if (authData) {
+		ref.once("value", function(snapshot) {
+		    ref.orderByKey().on("child_added", function(childSnapshot) {
+			if( childSnapshot.key() === 'users'){
+			    childSnapshot.forEach(function(grandChildSnapshot){
+				grandChildSnapshot.forEach(function(greatGChildSnapshot){
+				    greatGChildSnapshot.forEach(function(GGGChildSnapshot) {
+					if( GGGChildSnapshot.key() === 'email' ) {
+					    if( GGGChildSnapshot.val() === authData.password.email ) {
+						var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/users/' + grandChildSnapshot.key() +  '/' + greatGChildSnapshot.key()); //Connect to Firebase
+						//var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/users/-KF1oUCc1fVKd-oBoN5H/list');
+						ref2.update({'price': price['price']});
+						window.location.href="/pay";
+					    }
+					}
+				    });
+				});
+			    }); 
+			}
+		    });
+		});
+	    } else {
+		console.log("Client unauthenticated.")
+	    }
+	});
+    });
 });
