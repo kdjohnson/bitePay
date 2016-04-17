@@ -8,11 +8,11 @@ $app = new \Slim\App;
 $container = $app->getContainer();
 
 
-//Register component on container 
+//Register component on container
 $container['view'] = function($container) {
     $view = new \Slim\Views\Twig('./templates');
 
-    $view->addExtension(new \Slim\Views\TwigExtension( 
+    $view->addExtension(new \Slim\Views\TwigExtension(
 		$container['router'],
 		$container['request']->getUri()
 		));
@@ -47,6 +47,9 @@ $app->get('/pay', function ($request, $response) {
 
 $app->get('/chat', function ($request, $response) {
     return $this->view->render($response, 'chat.html');
+
+$app->get('/confirmation', function ($request, $response) {
+    return $this->view->render($response, 'confirmation.html');
 });
 
 // Run app
