@@ -47,6 +47,7 @@ $app->get('/pay', function ($request, $response) {
 
 $app->get('/chat', function ($request, $response) {
     return $this->view->render($response, 'chat.html');
+});
 
 $app->get('/confirmation', function ($request, $response) {
     return $this->view->render($response, 'confirmation.html');
