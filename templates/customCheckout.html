@@ -17,33 +17,21 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
+<script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script type="text/javascript" src="../js/custom.js"></script>
 </head>
-<form id="checkout" method="post" action="result/">
+<form id="checkout" method="get" action="/pay">
     <div class="container">
 	Amount $
-	<input class="form-control" type="number" type="text">
+	<input class="form-control" type="number" type="text" id="amount" disabled>
 	Card Number:
-	<input class="form-control" type="number" data-braintree-name="number" value="4111111111111111">
+	<input class="form-control" type="number" data-braintree-name="number" id="cardNumber">
 	Expiration Date (MM/YY): 
-	<input class="form-control" type="number" data-braintree-name="expiration_date" value="10/20">
+	<input class="form-control" data-braintree-name="expiration_date" id="expire">
 	CVV:
-	<input class="form-control" type="number" data-braintree-name="cvv">
-	<button class="btn" type="submit">Pay</button>
+	<input class="form-control" type="number" data-braintree-name="cvv" id="cvvNum">
+	<button class="btn" type="submit" id="pay">Pay</button>
     </div>
 </form>
-<script>
-    $(document).ready(function(){
-	$.ajax({
-	    method: "GET",
-	    url: "templates/payment.php",
-	    success: function(data) { 
-		braintree.setup(
-		    data, 
-		    "custom", {
-			id: "checkout"
-		    });
-	    }
-	});
-    });
-</script>
 </html>
