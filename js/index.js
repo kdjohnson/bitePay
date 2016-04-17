@@ -4,6 +4,14 @@ $(document).ready(function() {
     var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/Inline');
     var username;
 
+    ref.onAuth(function(data){
+	if(data) {
+	    console.log(data.password.email);
+	} else {
+	    console.log('naww');
+	}
+    });
+
     $('[id^=c]').click(function(event) {
 	$('[id^=c]').not(this).prop('checked', false);  
 	console.log($(this).prop('value'));

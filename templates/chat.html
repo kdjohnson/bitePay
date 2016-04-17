@@ -10,31 +10,30 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Molengo' rel='stylesheet' type='text/css'>
+<link href='../css/nav.css' rel='stylesheet' type='text/css'>
+<link href='../css/footer.css' rel='stylesheet' type='text/css'>
+<link href='../css/animate.css' rel='stylesheet' type='text/css'>
+<link href='../css/chat.css' rel='stylesheet' type='text/css'>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-<script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
-<title>Register</title>
+<script type="text/javascript" src="../js/chat.js"></script>
+<title>title</title>
 </head>
 <body>
-    <!-- Drop In -->
-    <form id="checkout" method="post" action="/pay">
-	<div id="payment-form"></div>
-    </form>
+    <div class="example-chat l-demo-container">
+	<header>bitePay chat</header>
+	<div class='example-chat-toolbar'>
+	</div>
+
+	<ul id='example-messages' class="example-chat-messages"></ul>
+
+	<footer>
+	    <input type='text' id='messageInput'  placeholder='Type a message...'>
+	</footer>
+    </div>
 </body>
-<script>
-    $(document).ready(function(){
-	$.ajax({
-	    method: "GET",
-	    url: "templates/payment.php",
-	    success: function(data) { 
-		braintree.setup(data, "dropin", {
-		    container: "payment-form"
-		});
-	    }
-	});
-    });
-</script>
 </html>

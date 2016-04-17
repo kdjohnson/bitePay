@@ -45,5 +45,9 @@ $app->get('/pay', function ($request, $response) {
     return $this->view->render($response, 'checkout.html');
 });
 
+$app->get('/chat', function ($request, $response) {
+    return $this->view->render($response, 'chat.html');
+});
+
 // Run app
 $app->run();

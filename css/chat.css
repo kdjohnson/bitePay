@@ -1,0 +1,41 @@
+.example-chat header {
+    background-color: #000000;
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: 1px solid #CCC;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFD966;
+}
+
+.example-chat ul {
+    list-style: none;
+    margin: 0px;
+    padding: 20px;
+    height: 49em;
+    overflow: auto;
+}
+
+@media( max-width: 768px ) {
+    .example-chat ul {
+	height: 40em;
+    }
+}
+
+
+.example-chat ul .example-chat-username {
+    margin-right: 10px;
+}
+
+.example-chat ul li:last-child {
+    margin: 0px;
+}
+
+.example-chat footer {
+    display: block;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+}
