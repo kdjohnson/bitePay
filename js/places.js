@@ -219,7 +219,7 @@ $(document).ready(function() {
 						var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/users/' + grandChildSnapshot.key() +  '/' + greatGChildSnapshot.key()); //Connect to Firebase
 						//var ref2 = new Firebase('https://shining-fire-5792.firebaseio.com/users/-KF1oUCc1fVKd-oBoN5H/list');
 						ref2.update({'price': price['price']});
-						window.location.href="/pay";
+						window.location.href="/confirmation";
 					    }
 					}
 				    });
