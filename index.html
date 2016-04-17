@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="sytlesheet" href=https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Molengo' rel='stylesheet' type='text/css'>
+	<link href='../css/index.css' rel='stylesheet' type='text/css'>
+	<link href='../css/nav.css' rel='stylesheet' type='text/css'>
+	<link href='../css/footer.css' rel='stylesheet' type='text/css'>
+	<link href='../css/animate.css' rel='stylesheet' type='text/css'>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script type="text/javascript" src="../js/index.js"></script>
+	<title>title</title>
+    </head>
+
+    <body>
+	<header class"main-header">
+	    <ul class="nav-custom">
+		<li><a href="/">Home</a></li>
+		<li><a href="/places">Full Restaurant List</a></li>
+		<li><a href="/register">Register or Log In</a></li>
+	    </ul>
+	</header>
+	<div class="container-fluid">
+	    <div class="jumbotron">
+		<h1>Welcome to bitePay</h1>
+		<div class="homeButtons">
+		    <button class="btn btn-defualt btn-lg" type="button" data-toggle="modal" data-target="#InlineFood">In-Line</button>
+		    <button class="btn btn-defualt btn-lg" type="button" data-toggle="modal" data-target="#needFood">Need Food?</button>
+		</div>
+		<div class="modal fade" id="needFood" tabindex="-1" role="dialog" aria-labelledby="needFoodLabel">
+		    <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			    <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="needFoodLabel">Where ?</h4>
+			    </div>
+			    <div class="modal-body">
+				<div class="list-group">
+				    <li class="list-group-item"><a href="places/Einstein">Einstein Bagels</a></li>
+				    <li class="list-group-item"><a href="places/Panda">Panda Express</a></li>
+				    <li class="list-group-item"><a href="places/Subway">Subway</a></li>
+				    <li class="list-group-item"><a href="places/Create">Create</a></li>
+				    <li class="list-group-item"><a href="places/Moes">Moe's Southwestern Grill</a></li>
+				    <li class="list-group-item"><a href="places/Chickfila">Chick-fil-a</a></li>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		</div><!-- end need Food modal -->
+		<div class="modal fade" id="InlineFood" tabindex="-1" role="dialog" aria-labelledby="InlineFoodLabel">
+		    <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			    <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="InlineFoodLabel">Where ?</h4>
+			    </div>
+			    <div class="modal-body in-line">
+				<input type="checkbox" id="c1" value="Einstein"/>
+				<label for="c1">Einstein Bagels</label>
+				<input type="checkbox" id="c2" value="Panda"/>
+				<label for="c2">Panda Express</label>
+				<input type="checkbox" id="c3" value="Subway"/>
+				<label for="c3">Subway</label>
+				<input type="checkbox" id="c4" value="Create"/>
+				<label for="c4">Create</label>
+				<input type="checkbox" id="c5" value="Moes"/>
+				<label for="c5">Moe's Southwester Grill</label>
+				<input type="checkbox" id="c6" value="Chickfila"/>
+				<label for="c6">Chick-fil-A</label>
+				<div class="container-fluid sendOff">
+				    <button type="button" class="btn btn-default btn-lg"><a href="#" id="placedInline">Get Placed Inline</a></button> 
+				    <div class="alert alert-danger" role="danger">Please login first</div>
+				</div><!-- sendOff -->
+			    </div><!-- modal body -->
+			</div><!-- modal content -->
+		    </div>
+		</div><!-- end In-Line modal -->
+	    </div><!-- end jumbotron -->
+	</div><!-- end container -->
+	<div class="footer">
+	    <img src="../img/bitePayTransparent.png">
+	</div>
+    </body>
+</html>
