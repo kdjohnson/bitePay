@@ -95,7 +95,7 @@ $(document).ready(function() {
 		total = values.reduce(function(a, b) {
 		    return a + b;
 		});
-		$('.price').prop('innerHTML', 'Total: $' + parseFloat(total));
+		$('.price').prop('innerHTML', 'Total: $' + parseFloat(total).toFixed(2));
 		$('#portion' + $(this).prop('id').substring(7, $(this).prop('id').length) ).prop('innerHTML', count)
 	    } else {
 		$(this).addClass('animated wobble');
@@ -125,7 +125,7 @@ $(document).ready(function() {
 		    total = values.reduce(function(a, b) {
 			return a + b;
 		    });
-		    $('.price').prop('innerHTML', 'Total: $' + parseFloat(total));
+		    $('.price').prop('innerHTML', 'Total: $' + parseFloat(total).toFixed(2));
 		    $('#portion' + $(this).prop('id').substring(8, $(this).prop('id').length) ).prop('innerHTML', count)
 		}
 	    } else {
@@ -157,10 +157,9 @@ $(document).ready(function() {
 	}
 	for(var i = 0; i < peopleInline.length; i++){
 	    if($("#options" + i ).prop('name') === 'options') {
-		console.log("Fuck");
+		console.log("Inline");
 	    } else {
 		for(var i = 0; i < peopleInline.length; i++) {
-		   //$('.btn-group').append('<label class="btn"><input type="radio" name="options" id="options' + i + '" autocomplete="off">' +  peopleInline[i] + '</label>'); 
 		    $('.btn-group').append('<label id="peeps' + i + '" ><input type="radio" id="options' + i + '" name="options">' + peopleInline[i] + '</label>');
 		}
 	    }
