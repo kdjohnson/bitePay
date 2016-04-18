@@ -107,6 +107,8 @@ $(document).ready(function() {
 		}, function(error, authData){
 		    if(error) {
 			console.log("Shit done broke son", error);
+			$('.alert').css('display','block');
+			console.log($('.alert').prop('innerText', error));
 		    } else {
 			console.log("Authenticated bitch", authData);
 			alert(ref.getAuth().auth.uid);
