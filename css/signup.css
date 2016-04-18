@@ -181,3 +181,9 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+
+.alert {
+    margin-top: 10px;
+    text-align: center;
+    display:none;
+}
