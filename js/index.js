@@ -7,6 +7,7 @@ $(document).ready(function() {
     ref.onAuth(function(data){
 	if(data) {
 	    console.log(data.password.email);
+	    $('#registered').prop('innerHTML', 'Log out');
 	} else {
 	    console.log('naww');
 	}
@@ -20,10 +21,10 @@ $(document).ready(function() {
     $('#placedInline').click(function(event) {
 
 	ref.onAuth(function(authData) {
-	    console.log("Authenticated with uid:", authData.uid);
 	    //var place = $('[id^=c]:checked').prop('value');
 
 	    if (authData) {
+		console.log("Authenticated with uid:", authData.uid);
 		ref.once("value", function(snapshot) {
 		    ref.orderByKey().on("child_added", function(childSnapshot) {
 			if( childSnapshot.key() === 'users'){
