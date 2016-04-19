@@ -16,6 +16,19 @@ $(document).ready(function() {
     //Set name and location
     $('.page-header').prop('innerHTML', "<h1>" + f.substring(8, f.length) + "<small> Oakland Center</small>");
 
+    ref.onAuth(function(data){
+	if(data){
+	    $('#registered').prop('innerText', 'Log out');
+	}
+    });
+
+    $('#registered').click(function(event){
+	if($(this).prop('innerText') === 'Log out'){
+	    ref.unauth();
+	    $(this).prop('href', '/');
+	}
+    });
+
     /*
      * Query of Firebase to get the elements to populate the page.
      * Gets the key and checks that against the page it's on. So it'll display the correct data. 
