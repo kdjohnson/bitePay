@@ -13,6 +13,13 @@ $(document).ready(function() {
 	}
     });
 
+    $('#registered').click(function(event){
+	if($(this).prop('innerText') === 'Log out'){
+	    ref.unauth();
+	    $(this).prop('href', '/');
+	}
+    });
+
     $('[id^=c]').click(function(event) {
 	$('[id^=c]').not(this).prop('checked', false);  
 	console.log($(this).prop('value'));
